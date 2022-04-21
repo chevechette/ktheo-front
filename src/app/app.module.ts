@@ -9,6 +9,13 @@ import { BoardAdminComponent } from './_components/board-admin/board-admin.compo
 import { BoardModeratorComponent } from './_components/board-moderator/board-moderator.component';
 import { BoardUserComponent } from './_components/board-user/board-user.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MaterialModule} from "./material/material.module";
+import {MatButtonModule} from "@angular/material/button";
+import {FlexLayoutModule} from "@angular/flex-layout";
+import { LoginComponent } from './_components/login/login.component';
+import {MatTableModule} from "@angular/material/table";
+import {MatCardModule} from "@angular/material/card";
+import { SidenavComponent } from './_components/sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
@@ -17,12 +24,19 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ProfileComponent,
     BoardAdminComponent,
     BoardModeratorComponent,
-    BoardUserComponent
+    BoardUserComponent,
+    LoginComponent,
+    SidenavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MaterialModule,
+    MatButtonModule,
+    FlexLayoutModule,
+    MatTableModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
