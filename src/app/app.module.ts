@@ -23,6 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { LayoutModule } from '@angular/cdk/layout';
 import {MatInputModule} from "@angular/material/input";
 import { ArtworkComponent } from './_components/artwork/artwork.component';
+import {NgxTwitterTimelineModule} from "ngx-twitter-timeline";
+import {NgxTwitterWidgetsModule} from "ngx-twitter-widgets";
 
 @NgModule({
   declarations: [
@@ -50,7 +52,8 @@ import { ArtworkComponent } from './_components/artwork/artwork.component';
     MatMenuModule,
     MatIconModule,
     LayoutModule,
-    MatInputModule
+    MatInputModule,
+    NgxTwitterWidgetsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

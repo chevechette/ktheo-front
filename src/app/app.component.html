@@ -1,6 +1,8 @@
 <mat-toolbar color="primary" class="example-toolbar">
   <button mat-icon-button (click)="isExpanded = !isExpanded"><mat-icon>menu</mat-icon></button>
   <h1 class="example-app-name">{{title}}</h1>
+  <span class="example-spacer"></span>
+  <a class="btn-icon" routerLink="/jl"><mat-icon>share</mat-icon></a>
 </mat-toolbar>
 <mat-sidenav-container class="example-container" autosize>
   <mat-sidenav #sidenav class="example-sidenav" mode="side" opened="true" (mouseenter)="mouseenter()" (mouseleave)="mouseleave()">
@@ -10,9 +12,13 @@
         <mat-icon mat-list-icon>home</mat-icon>
         <mat-icon class="menu-button" [ngClass]="{'rotated' : showSubmenu}" *ngIf="isExpanded || isShowing">expand_more</mat-icon>
       </a>
-      <a routerLink mat-list-item (click)="showSubmenu = !showSubmenu" class="parent">
+      <a routerLink="/artworks" mat-list-item  class="parent">
         <span class="full-width" *ngIf="isExpanded || isShowing">Painting</span>
         <mat-icon mat-list-icon>brush</mat-icon>
+      </a>
+      <a routerLink="/login" mat-list-item  class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Login</span>
+        <mat-icon mat-list-icon>login</mat-icon>
       </a>
 
       <!--<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
