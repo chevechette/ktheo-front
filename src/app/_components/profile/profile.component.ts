@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   constructor(private dataService: UserService) {
   }
 
-  displayedColumns = ['date_posted', 'title', 'category', 'delete'];
+  displayedColumns = ['id', 'username', 'email', 'isVerified','lastSeen','creationDate'];
   dataSource = new PostDataSource(this.dataService);
 
   ngOnInit(): void {

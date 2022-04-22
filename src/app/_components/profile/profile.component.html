@@ -20,25 +20,34 @@
           <mat-card-content>
             <div class="example-container mat-elevation-z8">
               <mat-table #table [dataSource]="dataSource">
-                <ng-container matColumnDef="date_posted">
+                <ng-container matColumnDef="id">
                   <mat-header-cell *matHeaderCellDef> Date Posted </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.date_posted  | date: 'd/M/y'}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.id  | date: 'd/M/y'}} </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="title">
+                <ng-container matColumnDef="username">
                   <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.title}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="category">
+                <ng-container matColumnDef="email">
                   <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+                  <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
                 </ng-container>
-                <ng-container matColumnDef="delete">
-                  <mat-header-cell *matHeaderCellDef></mat-header-cell>
+                <ng-container matColumnDef="isVerified">
+                  <mat-header-cell *matHeaderCellDef>isVerified</mat-header-cell>
                   <mat-cell *matCellDef="let element">
-                    <a
-                      type="button">
-                      <mat-icon class="icon">delete</mat-icon>
-                    </a>
+                    {{element.isVerified}}
+                  </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="lastSeen">
+                  <mat-header-cell *matHeaderCellDef>isVerified</mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                    {{element.userDetails.lastSeen}}
+                  </mat-cell>
+                </ng-container>
+                <ng-container matColumnDef="creationDate">
+                  <mat-header-cell *matHeaderCellDef>isVerified</mat-header-cell>
+                  <mat-cell *matCellDef="let element">
+                    {{element.userDetails.creationDate}}
                   </mat-cell>
                 </ng-container>
                 <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

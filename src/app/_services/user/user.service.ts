@@ -9,13 +9,12 @@ import {HttpClient} from "@angular/common/http";
 })
 export class UserService {
   private API_URL?: string;
+  date : Date = new Date();
+  userDetails ={locale:"FR_fr",birthDate:this.date,creationDate: this.date,lastSeen:this.date,facebookLink:"",twitterLink:'',instagramLink:'',tutorialized:true};
   ELEMENT_DATA: User[] = [
-    {id:0, email: 'Post One', username: 'Web Development', password: "Allstar", isVerified: true,userDetails:[]},
-    {id: 1, email: 'Post Two', username: 'Android Development', password: "Allstar", isVerified: true,userDetails:[]},
-    {id: 2, email: 'Post Three', username: 'IOS Development', password: "Allstar", isVerified: true,userDetails:[]},
-    {id: 3, email: 'Post Four', username: 'Android Development', password: "Allstar", isVerified: true,userDetails:[]},
-    {id: 4, email: 'Post Five', username: 'IOS Development', password: "Allstar", isVerified: true,userDetails:[]},
-    {id: 5, email: 'Post Six', username: 'Web Development', password: "Allstar", isVerified: true,userDetails:[]},
+    {id:0, email: 'me@ktheo.com', username: 'ME', password: "Allstar", isVerified: true,userDetails:this.userDetails},
+    {id: 1, email: 'myself@ktheo.com', username: 'MYSELF', password: "Allstar", isVerified: true,userDetails:this.userDetails},
+    {id: 2, email: 'i@ktheo.com', username: 'I', password: "Allstar", isVerified: true,userDetails:this.userDetails},
   ];
 
 

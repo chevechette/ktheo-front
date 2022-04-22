@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
+import {MatSidenav} from "@angular/material/sidenav";
+import {AppComponent} from "../../app.component";
 
 @Component({
   selector: 'app-sidenav',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidenavComponent implements OnInit {
 
-  constructor() { }
+  constructor(private appComp : AppComponent) { }
 
   ngOnInit(): void {
   }
+
 
 }

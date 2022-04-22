@@ -16,6 +16,13 @@ import { LoginComponent } from './_components/login/login.component';
 import {MatTableModule} from "@angular/material/table";
 import {MatCardModule} from "@angular/material/card";
 import { SidenavComponent } from './_components/sidenav/sidenav.component';
+import { DashboardComponent } from './_components/dashboard/dashboard.component';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatIconModule } from '@angular/material/icon';
+import { LayoutModule } from '@angular/cdk/layout';
+import {MatInputModule} from "@angular/material/input";
+import { ArtworkComponent } from './_components/artwork/artwork.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +33,9 @@ import { SidenavComponent } from './_components/sidenav/sidenav.component';
     BoardModeratorComponent,
     BoardUserComponent,
     LoginComponent,
-    SidenavComponent
+    SidenavComponent,
+    DashboardComponent,
+    ArtworkComponent
   ],
   imports: [
     BrowserModule,
@@ -36,9 +45,15 @@ import { SidenavComponent } from './_components/sidenav/sidenav.component';
     MatButtonModule,
     FlexLayoutModule,
     MatTableModule,
-    MatCardModule
+    MatCardModule,
+    MatGridListModule,
+    MatMenuModule,
+    MatIconModule,
+    LayoutModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
