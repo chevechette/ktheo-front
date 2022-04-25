@@ -18,6 +18,17 @@ export class ProfileComponent implements OnInit {
 
   displayedColumns = ['id', 'username', 'email', 'isVerified','lastSeen','creationDate'];
 
+  UserDetailForm:any = {
+    locale:null,
+    birthDate:null,
+    creationDate:null,
+    lastSeen:null,
+    facebookLink:null,
+    twitterLink:null,
+    instagramLink:null,
+  }
+
+
 
   isLog(){
     return !!this.tokenService.getUser().username;
@@ -29,7 +40,6 @@ export class ProfileComponent implements OnInit {
     this.dataService.getUser().subscribe({
       next: value => this.userdata = value
     });
-    console.log(this.userdata)
   }
 
   connect() {
@@ -40,6 +50,9 @@ export class ProfileComponent implements OnInit {
     });
   }
 
+  getErrorMessage() {
+    return "Champ invalide";
+  }
   disconnect() {
   }
 
