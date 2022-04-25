@@ -12,16 +12,20 @@ const routes: Routes = [
   {
     path : "",
     pathMatch:'full',
-    component: DashboardComponent
+    component: DashboardComponent,
+    data:{title:"KTheO"}
   },{
     path: "profile",
-    component:ProfileComponent
+    component:ProfileComponent,
+    data:{title:"Votre Profil"}
   },{
     path: "login",
-    component:LoginComponent
+    component:LoginComponent,
+    data:{title: "Login"}
   },{
     path: "artworks",
-    component:ArtworkComponent
+    component:ArtworkComponent,
+    data:{title:"Artworks"}
   }
 ];
 
