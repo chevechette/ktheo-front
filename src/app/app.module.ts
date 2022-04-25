@@ -25,6 +25,9 @@ import {MatInputModule} from "@angular/material/input";
 import { ArtworkComponent } from './_components/artwork/artwork.component';
 import {NgxTwitterTimelineModule} from "ngx-twitter-timeline";
 import {NgxTwitterWidgetsModule} from "ngx-twitter-widgets";
+import {MatChipsModule} from "@angular/material/chips";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {ReactiveFormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -53,7 +56,10 @@ import {NgxTwitterWidgetsModule} from "ngx-twitter-widgets";
     MatIconModule,
     LayoutModule,
     MatInputModule,
-    NgxTwitterWidgetsModule
+    NgxTwitterWidgetsModule,
+    MatChipsModule,
+    MatAutocompleteModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

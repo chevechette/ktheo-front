@@ -2,7 +2,7 @@
   <h1 class="mat-h1">Dashboard</h1>
   <mat-grid-list cols="2" rowHeight="350px">
     <mat-grid-tile *ngFor="let card of cards | async" [colspan]="card.cols" [rowspan]="card.rows">
-      <mat-card class="dashboard-card">
+      <mat-card  class="dashboard-card">
         <mat-card-header>
           <mat-card-title>
             {{card.title}}
@@ -16,8 +16,11 @@
           </mat-card-title>
         </mat-card-header>
         <mat-card-content class="dashboard-card-content">
-          <div>
-            <a href="https://twitter.com/intent/tweet?button_hashtag=LoveTwitter&ref_src=twsrc%5Etfw" class="twitter-hashtag-button" data-show-count="false">Tweet #LoveTwitter</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+          <div #mycard>
+            <ngx-twitter-timeline
+              [source]="{sourceType: 'profile', screenName: 'twitter'}"
+              [options]="{height: calculateDivHeight(mycard)}">
+            </ngx-twitter-timeline>
           </div>
         </mat-card-content>
 

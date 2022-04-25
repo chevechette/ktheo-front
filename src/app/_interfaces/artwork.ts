@@ -1,3 +1,5 @@
+import {Category} from "./category";
+
 export interface Artwork {
   id:number,
   name:string,
@@ -8,5 +10,6 @@ export interface Artwork {
   restricted:boolean,
   location:string;
   auctionList:string;
+  category:Category
 
 }

@@ -27,11 +27,4 @@
   cursor: pointer;
 }
 
-.dashboard-card-content {
-  text-align: center;
 
-}
-
-ngx-twitter-timeline{
-  max-height: inherit;
-}
