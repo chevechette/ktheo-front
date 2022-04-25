@@ -7,5 +7,6 @@ export interface Auction {
   auctionStopingTime: Date,
   status:string,
   bids:Biding[],
-  artwork:Artwork;
+  artwork:Artwork[];
+
 }

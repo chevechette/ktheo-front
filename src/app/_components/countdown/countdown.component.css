@@ -1,0 +1,47 @@
+.circleBase {
+  border-radius: 50%;
+  /* remove if you don't care about IE8 */
+}
+
+.type1 {
+  width: 100px;
+  height: 100px;
+  background: red;
+  border: 3px solid red;
+}
+.type2 {
+  width: 50px;
+  height: 50px;
+  background: #ccc;
+  border: 3px solid #000;
+}
+.type3 {
+  width: 500px;
+  height: 500px;
+  background: aqua;
+  border: 30px solid blue;
+}
+/** Styles to make the demo look better. */
+.example-ripple-checkbox {
+  margin: 6px 12px 6px 0;
+}
+
+.example-ripple-container {
+  cursor: pointer;
+  text-align: center;
+
+  width: 300px;
+  height: 300px;
+  line-height: 300px;
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.example-ripple-form-field {
+  margin: 0 12px 0 0;
+}

@@ -62,7 +62,7 @@ export class AppComponent {
       )
       .subscribe((title: string) => {
         if (title) {
-           this.titleService.setTitle(`KTheO- ${title}`);
+           this.titleService.setTitle(`KTheO - ${title}`);
           this.title = this.titleService.getTitle();
         }
       });

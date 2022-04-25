@@ -31,11 +31,11 @@
             <input matInput [(ngModel)]="UserDetailForm.locale" name="username" placeholder="Username" required>
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="UserDetailForm.birthDate" name="password" type="date" placeholder="Date de naissance" required>
+            <input matInput [(ngModel)]="UserDetailForm.birthDate" name="password" placeholder="{{this.userdetailsData.birthDate}}" required>
             <mat-error *ngIf="UserDetailForm.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="UserDetailForm.facebookLink" name="password" type="text" placeholder="ID Facebook" required>
+            <input matInput [(ngModel)]="UserDetailForm.facebookLink" name="password" type="text" placeholder="{{userdata.userData.lastSeen}}" required>
           </mat-form-field>
         <mat-form-field class="example-full-width">
             <input matInput [(ngModel)]="UserDetailForm.twitterLink" name="password" type="text" placeholder="ID Twitter" required>

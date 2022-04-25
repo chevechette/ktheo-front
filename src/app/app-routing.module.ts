@@ -7,6 +7,8 @@ import {LoginComponent} from "./_components/login/login.component";
 import {DashboardComponent} from "./_components/dashboard/dashboard.component";
 import {ArtworkService} from "./_services/artwork/artwork.service";
 import {ArtworkComponent} from "./_components/artwork/artwork.component";
+import {CountdownComponent} from "./_components/countdown/countdown.component";
+import {AuctionComponent} from "./_components/auction/auction.component";
 
 const routes: Routes = [
   {
@@ -26,6 +28,10 @@ const routes: Routes = [
     path: "artworks",
     component:ArtworkComponent,
     data:{title:"Artworks"}
+  },{
+    path: "auction",
+    component:AuctionComponent,
+    data:{title:"Auction"}
   }
 ];
 

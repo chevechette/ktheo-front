@@ -12,6 +12,6 @@ export interface User {
   verified:boolean,
   roleList:Role[]
   profile:Profile,
-  userDetails:UserDetails,
+  userData:UserDetails,
   address:Address;
 }

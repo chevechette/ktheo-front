@@ -32,6 +32,10 @@
         <mat-icon mat-list-icon>person_pin</mat-icon>
       </a>
       </ng-template>
+      <a routerLink="/auction" mat-list-item  class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Profile</span>
+        <mat-icon mat-list-icon>currency_exchange</mat-icon>
+      </a>
 
       <!--<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
         <a mat-list-item routerLink="/login">Submenu Item 1</a>

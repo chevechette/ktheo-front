@@ -33,6 +33,11 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
+import { CountdownComponent } from './_components/countdown/countdown.component';
+import {MatRippleModule} from "@angular/material/core";
+import { AuctionComponent } from './_components/auction/auction.component';
+import { AuctionsComponent } from './_components/auctions/auctions.component';
+import {MatExpansionModule} from "@angular/material/expansion";
 
 
 @NgModule({
@@ -48,32 +53,37 @@ import { UserDetailsComponent } from './_components/user-details/user-details.co
     DashboardComponent,
     ArtworkComponent,
     UserDetailsComponent,
+    CountdownComponent,
+    AuctionComponent,
+    AuctionsComponent,
 
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    BrowserAnimationsModule,
-    MaterialModule,
-    MatButtonModule,
-    FlexLayoutModule,
-    MatTableModule,
-    MatCardModule,
-    MatGridListModule,
-    MatMenuModule,
-    MatIconModule,
-    LayoutModule,
-    MatInputModule,
-    NgxTwitterWidgetsModule,
-    MatChipsModule,
-    MatAutocompleteModule,
-    ReactiveFormsModule,
-    FormsModule,
-    HttpClientModule,
-    MatTabsModule,
-    MatSliderModule,
-    MatProgressBarModule
-  ],
+    imports: [
+        BrowserModule,
+        AppRoutingModule,
+        BrowserAnimationsModule,
+        MaterialModule,
+        MatButtonModule,
+        FlexLayoutModule,
+        MatTableModule,
+        MatCardModule,
+        MatGridListModule,
+        MatMenuModule,
+        MatIconModule,
+        LayoutModule,
+        MatInputModule,
+        NgxTwitterWidgetsModule,
+        MatChipsModule,
+        MatAutocompleteModule,
+        ReactiveFormsModule,
+        FormsModule,
+        HttpClientModule,
+        MatTabsModule,
+        MatSliderModule,
+        MatProgressBarModule,
+        MatRippleModule,
+        MatExpansionModule
+    ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]
 })
