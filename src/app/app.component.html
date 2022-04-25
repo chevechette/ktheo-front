@@ -16,10 +16,22 @@
         <span class="full-width" *ngIf="isExpanded || isShowing">Painting</span>
         <mat-icon mat-list-icon>brush</mat-icon>
       </a>
-      <a routerLink="/login" mat-list-item  class="parent">
+
+      <div *ngIf="isLog(); then logged else notlogged">
+
+      </div>
+      <ng-template #notlogged>
+      <a  routerLink="/login" mat-list-item  class="parent">
         <span class="full-width" *ngIf="isExpanded || isShowing">Login</span>
         <mat-icon mat-list-icon>login</mat-icon>
       </a>
+      </ng-template>
+      <ng-template #logged>
+      <a  routerLink="/profile" mat-list-item  class="parent">
+        <span class="full-width" *ngIf="isExpanded || isShowing">Profile</span>
+        <mat-icon mat-list-icon>person_pin</mat-icon>
+      </a>
+      </ng-template>
 
       <!--<div class="submenu" [ngClass]="{'expanded' : showSubmenu}" *ngIf="isShowing || isExpanded">
         <a mat-list-item routerLink="/login">Submenu Item 1</a>

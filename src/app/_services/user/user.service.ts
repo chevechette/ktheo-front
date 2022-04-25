@@ -2,48 +2,54 @@ import { Injectable } from '@angular/core';
 import {Observable, of} from "rxjs";
 
 import {User} from "../../_interfaces/user";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Profile} from "../../_interfaces/profile";
+import {AuthService} from "../auth/auth.service";
+import {TokenStorageService} from "../token-storage/token-storage.service";
+import {UserDetails} from "../../_interfaces/user-details";
 
+
+
+const BASE_API = 'http://localhost:8080';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' ,'Access-Control-Allow-Origin':'*'})
+};
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+
   private API_URL?: string;
   date : Date = new Date();
+  img = "https://cdn.imgbin.com/16/16/4/imgbin-pok-mon-go-computer-icons-video-games-pokemon-black-white-cute-icon-gDyx43bfKWFeCqe1nDaxnKcsL.jpg"
+  profil1: Profile = {id:1,avatar:this.img,description:"",language:"fr_FR",views:0};
   userDetails ={locale:"FR_fr",birthDate:this.date,creationDate: this.date,lastSeen:this.date,facebookLink:"",twitterLink:'',instagramLink:'',tutorialized:true};
-  ELEMENT_DATA: User[] = [
-    {id:0, email: 'me@ktheo.com', username: 'ME', password: "Allstar", isVerified: true,userDetails:this.userDetails},
-    {id: 1, email: 'myself@ktheo.com', username: 'MYSELF', password: "Allstar", isVerified: true,userDetails:this.userDetails},
-    {id: 2, email: 'i@ktheo.com', username: 'I', password: "Allstar", isVerified: true,userDetails:this.userDetails},
-  ];
 
 
 
-  getData(): Observable<User[]> {
-    return of<User[]>(this.ELEMENT_DATA);
+  getUser():Observable<User>{
+    return this.http.get<User>(BASE_API+'/api/user/'+this.tokenService.getUser().userId,httpOptions)
   }
 
 
-  addPost(data: User) {
-    this.ELEMENT_DATA.push(data);
+  getUsersProfile():Observable<any>{
+    return this.http.get(BASE_API+'/api/profile/'+this.tokenService.getUser().userId,httpOptions)
   }
 
-  deletePost(index: number) {
-    this.ELEMENT_DATA = [...this.ELEMENT_DATA.slice(0, index), ...this.ELEMENT_DATA.slice(index + 1)];
+  getUsersData():Observable<any>{
+    return this.http.get(BASE_API+'/api/userdata/'+this.tokenService.getUser().userId,httpOptions)
   }
 
-  dataLength() {
-    return this.ELEMENT_DATA.length;
-  }
 
-  constructor(/*private http: HttpClient*/) { }
+  constructor(private http: HttpClient,private tokenService:TokenStorageService) { }
   /*
   getPublicContent(): Observable<any> {
     return this.http.get(this.API_URL + 'all', { responseType: 'text' });
-  }
+  }*/
   getUserBoard(): Observable<any> {
     return this.http.get(this.API_URL + 'user', { responseType: 'text' });
   }
+  /*
   getModeratorBoard(): Observable<any> {
     return this.http.get(this.API_URL + 'mod', { responseType: 'text' });
   }

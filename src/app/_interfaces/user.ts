@@ -1,12 +1,17 @@
 import {UserDetails} from "./user-details";
+import {Profile} from "./profile";
+import {Role} from "./role";
+import {Address} from "./address";
 
 
 export interface User {
   id:number,
-  email:string,
+  mail:string,
   username:string,
   password:string,
-  isVerified:boolean;
-  profile:Profile;
-  userDetails:UserDetails;
+  verified:boolean,
+  roleList:Role[]
+  profile:Profile,
+  userDetails:UserDetails,
+  address:Address;
 }

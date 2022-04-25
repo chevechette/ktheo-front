@@ -30,6 +30,10 @@ import {MatAutocompleteModule} from "@angular/material/autocomplete";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import { HttpClientModule} from "@angular/common/http";
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatSliderModule} from "@angular/material/slider";
+import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { UserDetailsComponent } from './_components/user-details/user-details.component';
+
 
 @NgModule({
   declarations: [
@@ -42,7 +46,9 @@ import {MatTabsModule} from "@angular/material/tabs";
     LoginComponent,
     SidenavComponent,
     DashboardComponent,
-    ArtworkComponent
+    ArtworkComponent,
+    UserDetailsComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -64,7 +70,9 @@ import {MatTabsModule} from "@angular/material/tabs";
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSliderModule,
+    MatProgressBarModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]

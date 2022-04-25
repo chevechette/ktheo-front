@@ -15,6 +15,7 @@
             </mat-form-field>
             <mat-form-field class="example-full-width">
               <input matInput [(ngModel)]="form.password" name="password" type="password" placeholder="Password" required>
+              <mat-error *ngIf="form.invalid">{{getErrorMessage()}}</mat-error>
             </mat-form-field>
           </mat-card-content>
           <button mat-raised-button color="accent" class="btn-block">Log in</button>

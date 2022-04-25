@@ -71,11 +71,17 @@ export class LoginComponent implements OnInit {
       error: err => {
         this.errorMessage = err.error.message;
         this.isSignUpFailed = true;
+        this.getErrorMessage()
+
       }
     });
   }
+
   reloadPage(): void {
     window.location.reload();
   }
 
+  getErrorMessage() {
+    return this.errorMessage;
+  }
 }

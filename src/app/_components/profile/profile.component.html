@@ -1,62 +1,38 @@
-<div>
-  <br>
-  <div class="container">
-    <div class="container">
-      <div fxLayout="column" fxLayoutGap="20px" fxLayout.gt-md="row"  fxLayoutAlign="space-around center" class="content">
-        <div class="blocks">
-          <button button="submit" mat-raised-button color="primary">
-            <mat-icon>add</mat-icon> Add Post
-          </button>
-        </div>
-      </div>
-    </div>
-    <br>
-    <div class="container">
-      <div fxLayout="row" fxLayoutAlign="center center" class="content">
-        <mat-card class="card" >
-          <mat-card-title fxLayout.gt-xs="row" fxLayout.xs="column">
-            <h3>Recent Posts</h3>
-          </mat-card-title>
-          <mat-card-content>
-            <div class="example-container mat-elevation-z8">
-              <mat-table #table [dataSource]="dataSource">
-                <ng-container matColumnDef="id">
-                  <mat-header-cell *matHeaderCellDef> Date Posted </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.id  | date: 'd/M/y'}} </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="username">
-                  <mat-header-cell *matHeaderCellDef> Title </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.username}} </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="email">
-                  <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
-                  <mat-cell *matCellDef="let element"> {{element.email}} </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="isVerified">
-                  <mat-header-cell *matHeaderCellDef>isVerified</mat-header-cell>
-                  <mat-cell *matCellDef="let element">
-                    {{element.isVerified}}
-                  </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="lastSeen">
-                  <mat-header-cell *matHeaderCellDef>isVerified</mat-header-cell>
-                  <mat-cell *matCellDef="let element">
-                    {{element.userDetails.lastSeen}}
-                  </mat-cell>
-                </ng-container>
-                <ng-container matColumnDef="creationDate">
-                  <mat-header-cell *matHeaderCellDef>isVerified</mat-header-cell>
-                  <mat-cell *matCellDef="let element">
-                    {{element.userDetails.creationDate}}
-                  </mat-cell>
-                </ng-container>
-                <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-                <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
-              </mat-table>
-            </div>
-          </mat-card-content>
-        </mat-card>
-      </div>
-    </div>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <mat-card class="profile-card">
+
+
+        <img  mat-card-sm-image src="https://w7.pngwing.com/pngs/984/50/png-transparent-pokxe9mon-go-pokxe9mon-battle-revolution-ico-icon-red-sprites-eggs-text-pet-logo.png">
+        <app-user-details class="mat-card-content" [user]="userdata"></app-user-details>
+
+
+    <mat-card-footer>
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    </mat-card-footer>
+  </mat-card>
+
+</div>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+  <div class="profile" *ngIf="isLog; then logged; else firsttime">
+
   </div>
 </div>
+
+<ng-template #firsttime>
+
+</ng-template>
+
+<ng-template #logged>
+<mat-card>
+  <mat-tab-group>
+    <mat-tab label="Information">
+    </mat-tab>
+    <mat-tab label="Profil Preferences">
+    </mat-tab>
+    <mat-tab label="Address and Delivery">
+    </mat-tab>
+
+  </mat-tab-group>
+
+</mat-card>
+</ng-template>

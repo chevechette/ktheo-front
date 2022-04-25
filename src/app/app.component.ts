@@ -5,6 +5,7 @@ import {Title} from "@angular/platform-browser";
 import {filter} from "rxjs";
 import {map} from "rxjs/operators";
 import {TokenStorageService} from "./_services/token-storage/token-storage.service";
+import {User} from "./_interfaces/user";
 
 @Component({
   selector: 'app-root',
@@ -22,15 +23,19 @@ export class AppComponent {
   isShowing = false;
   showSubSubMenu: boolean = false;
 
+  user_profile:User = this.tokenStorageService.getUser();
   mouseenter() {
     if (!this.isExpanded) {
       this.isShowing = true;
     }
   }
 
+  isLog(){
+    return !!this.tokenStorageService.getUser().username;
+  }
   logout(): void {
     this.tokenStorageService.signOut();
-    window.location.reload();
+    this.router.navigate([""]);
   }
 
   mouseleave() {
@@ -57,7 +62,7 @@ export class AppComponent {
       )
       .subscribe((title: string) => {
         if (title) {
-           this.titleService.setTitle(`My App - ${title}`);
+           this.titleService.setTitle(`KTheO- ${title}`);
           this.title = this.titleService.getTitle();
         }
       });

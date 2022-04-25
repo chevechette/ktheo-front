@@ -13,11 +13,11 @@ const routes: Routes = [
     path : "",
     pathMatch:'full',
     component: DashboardComponent,
-    data:{title:"KTheO"}
+    data:{title:"Accueil"}
   },{
     path: "profile",
     component:ProfileComponent,
-    data:{title:"Votre Profil"}
+    data:{title:"Your Profile"}
   },{
     path: "login",
     component:LoginComponent,
