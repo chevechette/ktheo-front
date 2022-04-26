@@ -10,6 +10,9 @@ import {formatDate} from "@angular/common";
 import {AddressService} from "../../_services/address.service";
 import {Address} from "../../_interfaces/address";
 import {isElementScrolledOutsideView} from "@angular/cdk/overlay/position/scroll-clip";
+import {MatDialog} from "@angular/material/dialog";
+import {NewAddressComponent} from "../new-address/new-address.component";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-profile',
@@ -20,20 +23,23 @@ export class ProfileComponent implements OnInit {
 
   user !: User;
   addresses!: Address[];
-  informationFormGroup : FormGroup = this.fb.group({});
-  preferencesFormGroup : FormGroup = this.fb.group({});
-  userAdressesFormGroup : FormGroup = this.fb.group({});
-  userInformationSubmit: boolean=false;
-  userPreferenceSubmit:boolean=false;
+  informationFormGroup: FormGroup = this.fb.group({});
+  preferencesFormGroup: FormGroup = this.fb.group({});
+  userAdressesFormGroup: FormGroup = this.fb.group({});
+  newAddressComponentShown: boolean = false;
+  userInformationSubmit: boolean = false;
+  userPreferenceSubmit: boolean = false;
 
   constructor(private dataService: UserService,
-              private tokenService:TokenStorageService,
+              private tokenService: TokenStorageService,
               private fb: FormBuilder,
-              private addressService: AddressService) {
+              private addressService: AddressService,
+              private router: Router
+  ) {
 
   }
 
-  isLog(){
+  isLog() {
     return !!this.tokenService.getUser().username;
   }
 
@@ -43,26 +49,26 @@ export class ProfileComponent implements OnInit {
     this.getUserAddresses();
   }
 
-  getUserDetails(){
-  this.dataService.getUser().subscribe(data=>{
-    this.user=data;
-    },
-    error => {
-      console.log(error);
-    },()=> this.informationFormGroup  = this.fb.group({
-        birthDate:[this.user?.userData.birthDate],
-        facebookId:[this.user?.userData.facebookLink],
-        twitterId:[this.user?.userData.twitterLink],
-        instagramId:[this.user?.userData.instagramLink]
+  getUserDetails() {
+    this.dataService.getUser().subscribe(data => {
+        this.user = data;
+      },
+      error => {
+        console.log(error);
+      }, () => this.informationFormGroup = this.fb.group({
+        birthDate: [this.user?.userData.birthDate],
+        facebookId: [this.user?.userData.facebookLink],
+        twitterId: [this.user?.userData.twitterLink],
+        instagramId: [this.user?.userData.instagramLink]
       }));
   }
 
-  getUserAddresses(){
-    this.addressService.getAllAddresses().subscribe(data=>{
-      this.addresses=data;
-    },
-      error=>{
-      console.log(error);
+  getUserAddresses() {
+    this.addressService.getAllAddresses().subscribe(data => {
+        this.addresses = data;
+      },
+      error => {
+        console.log(error);
       })
   }
 
@@ -74,26 +80,58 @@ export class ProfileComponent implements OnInit {
   }
 
   onSubmitInformation() {
-    this.userInformationSubmit=true;
-    if(this.informationFormGroup.invalid){
+    this.userInformationSubmit = true;
+    if (this.informationFormGroup.invalid) {
       return;
     }
-    let userData:UserData = {
-      id:this.user.userData.id,
-      locale:this.user.userData.locale,
-      birthDate:this.informationFormGroup.value.birthDate,
-      creationDate:this.user.userData.creationDate,
-      lastSeen:this.user.userData.lastSeen,
-      facebookLink:this.informationFormGroup.value.facebookId,
-      twitterLink:this.informationFormGroup.value.twitterId,
-      instagramLink:this.informationFormGroup.value.instagramId,
-      tutorialized:this.user.userData.tutorialized
+    let userData: UserData = {
+      id: this.user.userData.id,
+      locale: this.user.userData.locale,
+      birthDate: this.informationFormGroup.value.birthDate,
+      creationDate: this.user.userData.creationDate,
+      lastSeen: this.user.userData.lastSeen,
+      facebookLink: this.informationFormGroup.value.facebookId,
+      twitterLink: this.informationFormGroup.value.twitterId,
+      instagramLink: this.informationFormGroup.value.instagramId,
+      tutorialized: this.user.userData.tutorialized
     }
 
     this.dataService.updateUserData(userData)
       .subscribe({
-      next: ok => {
-      }});
+        next: ok => {
+        }
+      });
+
+  }
+
+  onClickNewAddress() {
+    this.newAddressComponentShown = true;
+
+  }
+
+  onNewAddress() {
+    this.addressService.getAllAddresses().subscribe(data => {
+        this.addresses = data;
+        this.ngOnInit()
+      this.newAddressComponentShown=false;
+      },
+      error => {
+        console.log(error);
+      })
+  }
+
+
+  onRemovedAddress() {
+    this.addressService.getAllAddresses().subscribe(data => {
+        this.addresses = data;
+        this.ngOnInit()
+        this.newAddressComponentShown=false;
+      },
+      error => {
+        console.log(error);
+      })
+
+
 
   }
 }

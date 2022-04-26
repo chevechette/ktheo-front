@@ -4,9 +4,9 @@
       (ngSubmit)="f.form.valid"
       #f="ngForm"
       novalidate>
-  <mat-card-content>
+  <mat-card-content >
     <mat-form-field class="example-full-width">
-      <input matInput formControlName="postalCode"  name="postalCode" type="number" >
+      <input matInput formControlName="postalCode"  name="postalCode" type="number"placeholder="Zip code" >
       <mat-error *ngIf="userAdressModifFormGroup.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
@@ -22,6 +22,7 @@
       <input matInput formControlName="town" name="town" type="text" placeholder="Town" >
     </mat-form-field>
     <button mat-raised-button *ngIf="userAdressModifFormGroup.dirty" color="accent" (click)="onSubmitAddressChange()" class="btn-block">Submit</button>
+    <button mat-raised-button  color="accent" (click)="onSubmitAddressDelete(address.id!)" class="btn-block">Delete</button>
   </mat-card-content>
 
 </form>

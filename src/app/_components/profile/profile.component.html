@@ -30,11 +30,11 @@
             novalidate>
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput formControlName="birthDate"  name="birthDate" type="date" >
+            <input matInput formControlName="birthDate"  name="birthDate" type="date"placeholder="Birth Date" >
             <mat-error *ngIf="informationFormGroup.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput formControlName="facebookId" name="facebookId" type="text" >
+            <input matInput formControlName="facebookId" name="facebookId" type="text"placeholder="ID Facebook" >
           </mat-form-field>
         <mat-form-field class="example-full-width">
             <input matInput formControlName="twitterId" name="twitterId" type="text" placeholder="ID Twitter" >
@@ -50,8 +50,11 @@
     <mat-tab label="Profil Preferences">
     </mat-tab>
     <mat-tab label="Address and Delivery">
-      <app-addresses *ngFor="let address of addresses" [address]="address"></app-addresses>
+      <app-addresses (addressRemoved)="onRemovedAddress()" *ngFor="let address of addresses" [address]="address" ></app-addresses>
+      <button mat-raised-button color="accent"  (click)="onClickNewAddress()" class="btn-block">Add new address</button>
+      <app-new-address (newAddress)="onNewAddress()" *ngIf="newAddressComponentShown"></app-new-address>
     </mat-tab>
+
     <mat-tab label="History">
     </mat-tab>
 

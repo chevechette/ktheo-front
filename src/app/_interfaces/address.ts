@@ -5,5 +5,5 @@ export interface Address {
   streetNumberComplement:string,
   streetName:string,
   postalCode:number,
-  userId:number
+  userId?:number
 }

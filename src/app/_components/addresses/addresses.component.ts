@@ -1,6 +1,6 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Address} from "../../_interfaces/address";
-import {FormBuilder, FormGroup} from "@angular/forms";
+import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {AddressService} from "../../_services/address.service";
 import {TokenStorageService} from "../../_services/token-storage/token-storage.service";
 
@@ -17,19 +17,21 @@ export class AddressesComponent implements OnInit {
   @Input("address")
   address!:Address
 
+  @Output("addressRemoved")
+  deleteAddressEvent:EventEmitter<number> = new EventEmitter<number>();
+
   constructor( private fb: FormBuilder,
                private addressService:AddressService,
                private tokenService:TokenStorageService) { }
 
   ngOnInit(): void {
     this.userAdressModifFormGroup = this.fb.group({
-      postalCode:[this.address.postalCode],
-      streetName:[this.address.streetName],
-      streetNumber:[this.address.streetNumber],
+      postalCode:[this.address.postalCode,[Validators.required]],
+      streetName:[this.address.streetName,[Validators.required]],
+      streetNumber:[this.address.streetNumber,[Validators.required]],
       streetNumberComplement:[this.address.streetNumberComplement],
-      town:[this.address.town]
+      town:[this.address.town,[Validators.required]]
     })
-    console.log(this.tokenService.getUser().userId)
   }
 
   onSubmitAddressChange() {
@@ -46,12 +48,17 @@ export class AddressesComponent implements OnInit {
       postalCode:this.userAdressModifFormGroup.value.postalCode,
       userId:this.tokenService.getUser().userId
     }
-    console.log(address)
 
     this.addressService.updateAddress(address).subscribe({next:ok=>{}});
   }
 
   getErrorMessage() {
     return "Champ invalide";
+  }
+
+  onSubmitAddressDelete(id:number) {
+    this.addressService.deleteOne(id).subscribe({next:ok=>{}});;
+    this.deleteAddressEvent.emit(id);
+
   }
 }

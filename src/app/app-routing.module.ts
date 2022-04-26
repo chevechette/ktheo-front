@@ -7,6 +7,7 @@ import {LoginComponent} from "./_components/login/login.component";
 import {DashboardComponent} from "./_components/dashboard/dashboard.component";
 import {ArtworkService} from "./_services/artwork/artwork.service";
 import {ArtworkComponent} from "./_components/artwork/artwork.component";
+import {AddressesComponent} from "./_components/addresses/addresses.component";
 
 const routes: Routes = [
   {
@@ -18,11 +19,13 @@ const routes: Routes = [
     path: "profile",
     component:ProfileComponent,
     data:{title:"Your Profile"}
-  },{
+  },
+  {
     path: "login",
     component:LoginComponent,
     data:{title: "Login"}
-  },{
+
+},{
     path: "artworks",
     component:ArtworkComponent,
     data:{title:"Artworks"}

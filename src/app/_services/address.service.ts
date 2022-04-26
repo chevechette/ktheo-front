@@ -23,10 +23,12 @@ export class AddressService {
     return this.http.get<Address[]>(BASE_API+'/api/'+this.tokenService.getUser().userId+'/addresses')
 }
   addAddress(address:Address):Observable<Address>{
-    return this.http.post<Address>(BASE_API+'/api/address/new',address,httpOptions)
+    address.userId=this.tokenService.getUser().userId;
+    return this.http.post<Address>(BASE_API+'/api/address',address,httpOptions)
   }
 
   deleteOne(id:number):Observable<Address>{
+    console.log(id);
     return this.http.delete<Address>(BASE_API+'/api/address/'+id)
   }
 

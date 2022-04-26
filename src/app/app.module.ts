@@ -35,6 +35,7 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
 import { AddressesComponent } from './_components/addresses/addresses.component';
 import { NewAddressComponent } from './_components/new-address/new-address.component';
+import {MDCDialog} from '@material/dialog';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { NewAddressComponent } from './_components/new-address/new-address.compo
     UserDetailsComponent,
     AddressesComponent,
     NewAddressComponent,
+
 
   ],
   imports: [
@@ -76,7 +78,8 @@ import { NewAddressComponent } from './_components/new-address/new-address.compo
     HttpClientModule,
     MatTabsModule,
     MatSliderModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+
   ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]
