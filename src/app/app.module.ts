@@ -34,6 +34,7 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
 import { AddressesComponent } from './_components/addresses/addresses.component';
+import { NewAddressComponent } from './_components/new-address/new-address.component';
 
 
 @NgModule({
@@ -50,6 +51,7 @@ import { AddressesComponent } from './_components/addresses/addresses.component'
     ArtworkComponent,
     UserDetailsComponent,
     AddressesComponent,
+    NewAddressComponent,
 
   ],
   imports: [

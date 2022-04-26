@@ -9,6 +9,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {formatDate} from "@angular/common";
 import {AddressService} from "../../_services/address.service";
 import {Address} from "../../_interfaces/address";
+import {isElementScrolledOutsideView} from "@angular/cdk/overlay/position/scroll-clip";
 
 @Component({
   selector: 'app-profile',
@@ -18,7 +19,7 @@ import {Address} from "../../_interfaces/address";
 export class ProfileComponent implements OnInit {
 
   user !: User;
-  adresses!: Address[];
+  addresses!: Address[];
   informationFormGroup : FormGroup = this.fb.group({});
   preferencesFormGroup : FormGroup = this.fb.group({});
   userAdressesFormGroup : FormGroup = this.fb.group({});
@@ -39,6 +40,7 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {
     this.getUserDetails();
+    this.getUserAddresses();
   }
 
   getUserDetails(){
@@ -57,7 +59,7 @@ export class ProfileComponent implements OnInit {
 
   getUserAddresses(){
     this.addressService.getAllAddresses().subscribe(data=>{
-      this.adresses=data;
+      this.addresses=data;
     },
       error=>{
       console.log(error);

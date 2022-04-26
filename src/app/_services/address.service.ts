@@ -22,8 +22,8 @@ export class AddressService {
   getAllAddresses():Observable<Address[]>{
     return this.http.get<Address[]>(BASE_API+'/api/'+this.tokenService.getUser().userId+'/addresses')
 }
-  addAddress():Observable<Address>{
-    return this.http.post<Address>(BASE_API+'/api/address/new',httpOptions)
+  addAddress(address:Address):Observable<Address>{
+    return this.http.post<Address>(BASE_API+'/api/address/new',address,httpOptions)
   }
 
   deleteOne(id:number):Observable<Address>{

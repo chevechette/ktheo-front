@@ -6,18 +6,22 @@
       novalidate>
   <mat-card-content>
     <mat-form-field class="example-full-width">
-      <input matInput formControlName="birthDate"  name="birthDate" type="date" >
-      <mat-error *ngIf="informationFormGroup.invalid">{{getErrorMessage()}}</mat-error>
+      <input matInput formControlName="postalCode"  name="postalCode" type="number" >
+      <mat-error *ngIf="userAdressModifFormGroup.invalid">{{getErrorMessage()}}</mat-error>
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput formControlName="facebookId" name="facebookId" type="text" >
+      <input matInput formControlName="streetName" name="streetName" type="text" placeholder="Street name" >
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput formControlName="twitterId" name="twitterId" type="text" placeholder="ID Twitter" >
+      <input matInput formControlName="streetNumber" name="streetNumber" type="number" placeholder="Street number" >
     </mat-form-field>
     <mat-form-field class="example-full-width">
-      <input matInput formControlName="instagramId" name="instagramId" type="text" placeholder="ID Instagram" >
+      <input matInput formControlName="streetNumberComplement" name="streetNumberComplement" type="text" placeholder="Street number complement" >
     </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="town" name="town" type="text" placeholder="Town" >
+    </mat-form-field>
+    <button mat-raised-button *ngIf="userAdressModifFormGroup.dirty" color="accent" (click)="onSubmitAddressChange()" class="btn-block">Submit</button>
   </mat-card-content>
-  <button mat-raised-button color="accent" (click)="onSubmitInformation()" class="btn-block">Submit</button>
+
 </form>
