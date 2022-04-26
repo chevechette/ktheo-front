@@ -36,6 +36,7 @@ import { UserDetailsComponent } from './_components/user-details/user-details.co
 import { AddressesComponent } from './_components/addresses/addresses.component';
 import { NewAddressComponent } from './_components/new-address/new-address.component';
 import {MDCDialog} from '@material/dialog';
+import { UserInfoChangeComponent } from './_components/user-info-change/user-info-change.component';
 
 
 @NgModule({
@@ -53,6 +54,7 @@ import {MDCDialog} from '@material/dialog';
     UserDetailsComponent,
     AddressesComponent,
     NewAddressComponent,
+    UserInfoChangeComponent,
 
 
   ],

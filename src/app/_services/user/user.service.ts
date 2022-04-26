@@ -7,6 +7,7 @@ import {Profile} from "../../_interfaces/profile";
 import {AuthService} from "../auth/auth.service";
 import {TokenStorageService} from "../token-storage/token-storage.service";
 import {UserData} from "../../_interfaces/user-data";
+import {PasswordChangeCheckerResponse} from "../../_interfaces/dto/password-change-checker-response";
 
 
 
@@ -31,6 +32,10 @@ export class UserService {
 
   getUser():Observable<User>{
     return this.http.get<User>(BASE_API+'/api/user/'+this.tokenService.getUser().userId,httpOptions)
+  }
+
+  checkPassword(currentPassword:string):Observable<PasswordChangeCheckerResponse> {
+    return this.http.post<PasswordChangeCheckerResponse>(BASE_API+'/api/auth/'+this.tokenService.getUser().userId,currentPassword,httpOptions)
   }
 
   updateUserData(userData:UserData):Observable<UserData>{
@@ -62,4 +67,5 @@ export class UserService {
   getAdminBoard(): Observable<any> {
     return this.http.get(this.API_URL + 'admin', { responseType: 'text' });
   }*/
+
 }

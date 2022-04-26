@@ -1,0 +1,20 @@
+<form style="text-align: center"
+      [formGroup]="userInfoFormGroup"
+      name="form"
+      (ngSubmit)="f.form.valid"
+      #f="ngForm"
+      novalidate>
+  <mat-card-content>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="currentPassword"  name="currentPassword" type="password"placeholder="Current Password" required >
+      <mat-error *ngIf="userInfoFormGroup.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="newPassword" name="newPassword" type="password" placeholder="New Password" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="newPasswordChecker" name="newPasswordChecker" type="password" placeholder="New Password Confirmation" >
+    </mat-form-field>
+    <button mat-raised-button *ngIf="userInfoFormGroup.valid" color="accent" (click)="onSubmitChangePassword()" class="btn-block">Submit</button>
+  </mat-card-content>
+</form>

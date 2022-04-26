@@ -54,7 +54,11 @@
       <button mat-raised-button color="accent"  (click)="onClickNewAddress()" class="btn-block">Add new address</button>
       <app-new-address (newAddress)="onNewAddress()" *ngIf="newAddressComponentShown"></app-new-address>
     </mat-tab>
+    <mat-tab label="Personnal Informations">
+<app-user-info-change>
 
+</app-user-info-change>
+    </mat-tab>
     <mat-tab label="History">
     </mat-tab>
 
