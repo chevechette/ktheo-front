@@ -9,6 +9,8 @@ import {ArtworkService} from "./_services/artwork/artwork.service";
 import {ArtworkComponent} from "./_components/artwork/artwork.component";
 import {CountdownComponent} from "./_components/countdown/countdown.component";
 import {AuctionComponent} from "./_components/auction/auction.component";
+import {AuctionsComponent} from "./_components/auctions/auctions.component";
+import {TransactionsComponent} from "./_components/transactions/transactions.component";
 
 const routes: Routes = [
   {
@@ -29,9 +31,17 @@ const routes: Routes = [
     component:ArtworkComponent,
     data:{title:"Artworks"}
   },{
-    path: "auction",
+    path: "auctions",
+    component:AuctionsComponent,
+    data:{title:"Auctions"}
+  },{
+    path: "auctions/detail/:id",
     component:AuctionComponent,
-    data:{title:"Auction"}
+    data:{title: "Auction Detail"}
+  },{
+    path: "auctions/detail/:id/pay",
+    component:TransactionsComponent,
+    data:{title: "Complete my transaction"}
   }
 ];
 

@@ -1,15 +1,24 @@
 import {Category} from "./category";
+import {User} from "./user";
+import {Auction} from "./auction";
+import {Kudos} from "./kudos";
+import {Tag} from "./tag";
 
 export interface Artwork {
   id:number,
-  name:string,
+  title:string,
   description:string;
   owner:number,
+  creationLocation:string,
   createdOn:Date,
-  estimation:string,
+  creator:string,
+  estimatedPrice:string,
   restricted:boolean,
   location:string;
   auctionList:string;
-  category:Category
+  category:Category,
+  auction:Auction,
+  kudos:Kudos,
+  tags:Tag[]
 
 }

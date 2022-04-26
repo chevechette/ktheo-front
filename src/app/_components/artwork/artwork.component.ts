@@ -41,24 +41,24 @@ export class ArtworkComponent implements OnInit {
     this.getArtworks();
     this.result = this.artworks;
     this.getCategorieNames();
-
+    console.log(this.artworks)
   }
 
   artFilter:string[] =[];
   artworks!: Artwork[];
   categories!: string[];
   result!: Artwork[];
-  displayedColumns = ["name"];
+  displayedColumns = ["title"];
 
   allCategories = of(this.categories);
 
 
   getArtworks(){
      this.artService.getArtworks().subscribe({
-       next: artwork => this.artworks = artwork,
+       next: artwork => {this.artworks = artwork
+       console.log(artwork)},
        error: err => console.log(err),
        complete: () => console.log("complete")
-
      });
   }
   getCategorieNames(){
@@ -101,13 +101,11 @@ export class ArtworkComponent implements OnInit {
   }
   add(event: MatChipInputEvent): void {
     const value = (event.value || '').trim();
-
     // Add our fruit
     if (value) {
       this.artFilter.push(value);
       this.engine()
     }
-
     // Clear the input value
     event.chipInput!.clear();
     console.log(this.artFilter)

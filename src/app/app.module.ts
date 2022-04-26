@@ -38,6 +38,10 @@ import {MatRippleModule} from "@angular/material/core";
 import { AuctionComponent } from './_components/auction/auction.component';
 import { AuctionsComponent } from './_components/auctions/auctions.component';
 import {MatExpansionModule} from "@angular/material/expansion";
+import { TransactionsComponent } from './_components/transactions/transactions.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSortModule} from "@angular/material/sort";
 
 
 @NgModule({
@@ -56,6 +60,7 @@ import {MatExpansionModule} from "@angular/material/expansion";
     CountdownComponent,
     AuctionComponent,
     AuctionsComponent,
+    TransactionsComponent,
 
   ],
     imports: [
@@ -82,7 +87,10 @@ import {MatExpansionModule} from "@angular/material/expansion";
         MatSliderModule,
         MatProgressBarModule,
         MatRippleModule,
-        MatExpansionModule
+        MatExpansionModule,
+        MatStepperModule,
+        MatCheckboxModule,
+        MatSortModule
     ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]

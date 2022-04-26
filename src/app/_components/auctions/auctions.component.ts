@@ -14,8 +14,10 @@ export class AuctionsComponent implements OnInit {
 
   ngOnInit(): void {
     this.auctionService.getAuctions().subscribe({
-      next: value => this.auctions = value
+      next: value =>{ this.auctions = value; console.log(value)}
     });
+
+
   }
   auctions!: Auction[]
   panelOpenState = false;
