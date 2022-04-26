@@ -19,7 +19,7 @@
 </ng-template>
 
 <ng-template #logged>
-<mat-card *ngIf="user">
+<mat-card *ngIf="user" >
   <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Information">
       <form style="text-align: center"
@@ -32,16 +32,16 @@
           <mat-form-field class="example-full-width">
             <input matInput formControlName="birthDate"  name="birthDate" type="date"placeholder="Birth Date" >
             <mat-error *ngIf="informationFormGroup.invalid">{{getErrorMessage()}}</mat-error>
-          </mat-form-field>
+          </mat-form-field><br>
         <mat-form-field class="example-full-width">
             <input matInput formControlName="facebookId" name="facebookId" type="text"placeholder="ID Facebook" >
-          </mat-form-field>
+          </mat-form-field><br>
         <mat-form-field class="example-full-width">
             <input matInput formControlName="twitterId" name="twitterId" type="text" placeholder="ID Twitter" >
-          </mat-form-field>
+          </mat-form-field><br>
         <mat-form-field class="example-full-width">
             <input matInput formControlName="instagramId" name="instagramId" type="text" placeholder="ID Instagram" >
-          </mat-form-field>
+          </mat-form-field><br>
           <button mat-raised-button color="accent" *ngIf ="informationFormGroup.dirty" (click)="onSubmitInformation()" class="btn-block">Submit</button>
         </mat-card-content>
 

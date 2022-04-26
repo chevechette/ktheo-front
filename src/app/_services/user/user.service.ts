@@ -20,7 +20,7 @@ const httpOptions = {
 })
 export class UserService {
 
-
+user!:User;
 
   private API_URL?: string;
   date : Date = new Date();
@@ -34,12 +34,16 @@ export class UserService {
     return this.http.get<User>(BASE_API+'/api/user/'+this.tokenService.getUser().userId,httpOptions)
   }
 
-  checkPassword(currentPassword:string):Observable<PasswordChangeCheckerResponse> {
-    return this.http.post<PasswordChangeCheckerResponse>(BASE_API+'/api/auth/'+this.tokenService.getUser().userId,currentPassword,httpOptions)
+  checkPassword(currentPassword:string):Observable<boolean> {
+    return this.http.post<boolean>(BASE_API+'/api/auth/'+this.tokenService.getUser().userId,currentPassword,httpOptions)
   }
 
   updateUserData(userData:UserData):Observable<UserData>{
     return this.http.put<UserData>(BASE_API+'/api/userdata/',userData,httpOptions);
+
+  }
+  updateUserPassword(newPassword:string):Observable<User> {
+    return this.http.put<User>(BASE_API+'/api/user/'+this.tokenService.getUser().userId,newPassword,httpOptions)
 
   }
 
@@ -67,5 +71,6 @@ export class UserService {
   getAdminBoard(): Observable<any> {
     return this.http.get(this.API_URL + 'admin', { responseType: 'text' });
   }*/
+
 
 }
