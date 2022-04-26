@@ -1,10 +1,11 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="profile-card">
-        <app-user-details class="mat-card-content" [user]="userdata"></app-user-details>
+        <app-user-details *ngIf="user" class="mat-card-content" [user]="user"></app-user-details>
     <mat-card-footer>
-      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+      <mat-progress-bar mode="determinate" value="100"></mat-progress-bar>
     </mat-card-footer>
   </mat-card>
+
 
 </div>
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
@@ -18,39 +19,38 @@
 </ng-template>
 
 <ng-template #logged>
-<mat-card>
-  <mat-tab-group>
+<mat-card *ngIf="user">
+  <mat-tab-group mat-align-tabs="center">
     <mat-tab label="Information">
       <form style="text-align: center"
+            [formGroup]="informationFormGroup"
             name="form"
             (ngSubmit)="f.form.valid"
             #f="ngForm"
             novalidate>
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="UserDetailForm.locale" name="username" placeholder="Username" required>
-          </mat-form-field>
-          <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="UserDetailForm.birthDate" name="password" type="date" placeholder="Date de naissance" required>
-            <mat-error *ngIf="UserDetailForm.invalid">{{getErrorMessage()}}</mat-error>
+            <input matInput formControlName="birthDate"  name="birthDate" type="date" >
+            <mat-error *ngIf="informationFormGroup.invalid">{{getErrorMessage()}}</mat-error>
           </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="UserDetailForm.facebookLink" name="password" type="text" placeholder="ID Facebook" required>
+            <input matInput formControlName="facebookId" name="facebookId" type="text" >
           </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="UserDetailForm.twitterLink" name="password" type="text" placeholder="ID Twitter" required>
+            <input matInput formControlName="twitterId" name="twitterId" type="text" placeholder="ID Twitter" >
           </mat-form-field>
         <mat-form-field class="example-full-width">
-            <input matInput [(ngModel)]="UserDetailForm.instagramLink" name="password" type="text" placeholder="ID Instagram" required>
+            <input matInput formControlName="instagramId" name="instagramId" type="text" placeholder="ID Instagram" >
           </mat-form-field>
         </mat-card-content>
-        <button mat-raised-button color="accent" class="btn-block">Log in</button>
+        <button mat-raised-button color="accent" (click)="onSubmitInformation()" class="btn-block">Submit</button>
       </form>
-      <input matInput>
     </mat-tab>
     <mat-tab label="Profil Preferences">
     </mat-tab>
     <mat-tab label="Address and Delivery">
+    </mat-tab>
+    <mat-tab label="History">
     </mat-tab>
 
   </mat-tab-group>

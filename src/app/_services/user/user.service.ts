@@ -6,7 +6,7 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Profile} from "../../_interfaces/profile";
 import {AuthService} from "../auth/auth.service";
 import {TokenStorageService} from "../token-storage/token-storage.service";
-import {UserDetails} from "../../_interfaces/user-details";
+import {UserData} from "../../_interfaces/user-data";
 
 
 
@@ -18,6 +18,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
+
+
 
   private API_URL?: string;
   date : Date = new Date();
@@ -31,6 +33,10 @@ export class UserService {
     return this.http.get<User>(BASE_API+'/api/user/'+this.tokenService.getUser().userId,httpOptions)
   }
 
+  updateUserData(userData:UserData):Observable<UserData>{
+    return this.http.put<UserData>(BASE_API+'/api/userdata/',userData,httpOptions);
+
+  }
 
   getUsersProfile():Observable<any>{
     return this.http.get(BASE_API+'/api/profile/'+this.tokenService.getUser().userId,httpOptions)

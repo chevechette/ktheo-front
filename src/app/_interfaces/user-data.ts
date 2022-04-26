@@ -1,4 +1,5 @@
-export interface UserDetails {
+export interface UserData {
+  id?:number,
   locale:string,
   birthDate:Date,
   creationDate:Date,
@@ -8,3 +9,5 @@ export interface UserDetails {
   instagramLink:string,
   tutorialized:boolean
 }
+
+

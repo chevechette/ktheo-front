@@ -33,6 +33,7 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
+import { AddressesComponent } from './_components/addresses/addresses.component';
 
 
 @NgModule({
@@ -48,6 +49,7 @@ import { UserDetailsComponent } from './_components/user-details/user-details.co
     DashboardComponent,
     ArtworkComponent,
     UserDetailsComponent,
+    AddressesComponent,
 
   ],
   imports: [

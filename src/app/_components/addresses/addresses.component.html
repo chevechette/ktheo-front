@@ -1,0 +1,23 @@
+<form style="text-align: center"
+      [formGroup]="userAdressModifFormGroup"
+      name="form"
+      (ngSubmit)="f.form.valid"
+      #f="ngForm"
+      novalidate>
+  <mat-card-content>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="birthDate"  name="birthDate" type="date" >
+      <mat-error *ngIf="informationFormGroup.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="facebookId" name="facebookId" type="text" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="twitterId" name="twitterId" type="text" placeholder="ID Twitter" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="instagramId" name="instagramId" type="text" placeholder="ID Instagram" >
+    </mat-form-field>
+  </mat-card-content>
+  <button mat-raised-button color="accent" (click)="onSubmitInformation()" class="btn-block">Submit</button>
+</form>
