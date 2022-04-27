@@ -9,7 +9,7 @@ import {authInterceptorProviders} from "../../_helpers/auth.interceptor";
 import {TokenStorageService} from "../../_services/token-storage/token-storage.service";
 import {Auction} from "../../_interfaces/auction";
 import {ArtworkService} from "../../_services/artwork/artwork.service";
-
+import { MatStep } from '@angular/material/stepper';
 
 
 @Component({

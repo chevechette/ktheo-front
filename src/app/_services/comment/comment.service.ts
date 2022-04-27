@@ -2,33 +2,33 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from "rxjs";
 import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
-import { Tag } from "src/app/_interfaces/tag";
+import { Comment } from "src/app/_interfaces/comment";
 
 @Injectable({
   providedIn: 'root'
 })
-export class TagService {
-  apiURL:string = environment.API_URL + "/tag"
+export class CommentService {
+  apiURL:string = environment.API_URL + "/comment"
 
   constructor(private httpClient: HttpClient) { }
   
-  getAll(): Observable<Tag[]> {
-    return this.httpClient.get<Tag[]>(this.apiURL);
+  getAll(): Observable<Comment[]> {
+    return this.httpClient.get<Comment[]>(this.apiURL);
   }
 
-  getAllByArtwork(artworkId : number): Observable<Tag[]> {
-    return this.httpClient.get<Tag[]>(`${this.apiURL}/artwork/${artworkId}`);
+  getAllByArtwork(artworkId : number): Observable<Comment[]> {
+    return this.httpClient.get<Comment[]>(`${this.apiURL}/artwork/${artworkId}`);
   }
 
-  getById(id: number): Observable<Tag> {
-    return this.httpClient.get<Tag>(`${this.apiURL}/${id}`)
+  getById(id: number): Observable<Comment> {
+    return this.httpClient.get<Comment>(`${this.apiURL}/${id}`)
   }
 
   create(data: any): Observable<any> {
     return this.httpClient.post(`${this.apiURL}/new`, data);
   }
 
-  update(id: any, data: Tag): Observable<any> {
+  update(id: any, data: Comment): Observable<any> {
     return this.httpClient.put(`${this.apiURL}/${id}`, data);
   }
 
@@ -36,3 +36,5 @@ export class TagService {
     return this.httpClient.delete(`${this.apiURL}/${id}`);
   }
 }
+
+

@@ -2,6 +2,40 @@
   width: 100%;
 }
 
+mat-grid-tile {
+  background-position: center;
+  background-size:cover;
+}
+
+.mat-grid-tile .mat-grid-tile-header, .mat-grid-tile .mat-grid-tile-footer {
+  max-height: fit-content;
+  height: max-content;
+  display: flex;
+  padding: 10px;
+}
+
+mat-grid-tile-header {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  flex-basis: auto;
+
+  overflow-wrap: break-word;
+  height: max-content;
+}
+
+mat-grid-tile-header > h2{
+  font-weight: bold;
+}
+
+.work-card {
+  width: 100%;
+  margin: 20px;
+}
+
 .mat-table{
   align-self: center;
   align-content: center;

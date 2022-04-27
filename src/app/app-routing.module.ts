@@ -7,6 +7,8 @@ import {LoginComponent} from "./_components/login/login.component";
 import {DashboardComponent} from "./_components/dashboard/dashboard.component";
 import {ArtworkService} from "./_services/artwork/artwork.service";
 import {ArtworkComponent} from "./_components/artwork/artwork.component";
+import { ArtworkDetailsComponent } from './_components/artwork-details/artwork-details.component';
+import { ArtworkFormComponent } from './_components/artwork-form/artwork-form.component';
 import {CountdownComponent} from "./_components/countdown/countdown.component";
 import {AuctionComponent} from "./_components/auction/auction.component";
 import {AuctionsComponent} from "./_components/auctions/auctions.component";
@@ -30,7 +32,11 @@ const routes: Routes = [
     path: "artworks",
     component:ArtworkComponent,
     data:{title:"Artworks"}
-  },{
+  },
+  { path: 'artwork/new', component: ArtworkFormComponent, data:{title:"Create Artwork"}},
+  { path: 'artwork/:id', component: ArtworkDetailsComponent, data:{title:"Artwork"}},
+
+  {
     path: "auctions",
     component:AuctionsComponent,
     data:{title:"Auctions"}
