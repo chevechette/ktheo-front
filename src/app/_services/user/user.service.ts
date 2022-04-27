@@ -6,7 +6,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Profile} from "../../_interfaces/profile";
 import {AuthService} from "../auth/auth.service";
 import {TokenStorageService} from "../token-storage/token-storage.service";
-import {UserDetails} from "../../_interfaces/user-details";
+import {UserData} from "../../_interfaces/user-data";
+import {PasswordChangeCheckerResponse} from "../../_interfaces/dto/password-change-checker-response";
 
 
 
@@ -18,6 +19,8 @@ const httpOptions = {
   providedIn: 'root'
 })
 export class UserService {
+
+user!:User;
 
   private API_URL?: string;
   date : Date = new Date();
@@ -31,6 +34,18 @@ export class UserService {
     return this.http.get<User>(BASE_API+'/api/user/'+this.tokenService.getUser().userId,httpOptions)
   }
 
+  checkPassword(currentPassword:string):Observable<boolean> {
+    return this.http.post<boolean>(BASE_API+'/api/auth/'+this.tokenService.getUser().userId,currentPassword,httpOptions)
+  }
+
+  updateUserData(userData:UserData):Observable<UserData>{
+    return this.http.put<UserData>(BASE_API+'/api/userdata/',userData,httpOptions);
+
+  }
+  updateUserPassword(newPassword:string):Observable<User> {
+    return this.http.put<User>(BASE_API+'/api/user/'+this.tokenService.getUser().userId,newPassword,httpOptions)
+
+  }
 
   getUsersProfile():Observable<any>{
     return this.http.get(BASE_API+'/api/profile/'+this.tokenService.getUser().userId,httpOptions)
@@ -56,4 +71,6 @@ export class UserService {
   getAdminBoard(): Observable<any> {
     return this.http.get(this.API_URL + 'admin', { responseType: 'text' });
   }*/
+
+
 }

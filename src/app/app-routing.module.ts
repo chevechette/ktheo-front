@@ -13,6 +13,7 @@ import {CountdownComponent} from "./_components/countdown/countdown.component";
 import {AuctionComponent} from "./_components/auction/auction.component";
 import {AuctionsComponent} from "./_components/auctions/auctions.component";
 import {TransactionsComponent} from "./_components/transactions/transactions.component";
+import {AddressesComponent} from "./_components/addresses/addresses.component";
 
 const routes: Routes = [
   {

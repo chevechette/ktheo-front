@@ -1,4 +1,4 @@
-import {UserDetails} from "../user-details";
+import {UserData} from "../user-data";
 
 export interface CreateUser {
   mail:string,

@@ -1,0 +1,26 @@
+<form style="text-align: center"
+      [formGroup]="newUserAddressForm"
+      name="form"
+      (ngSubmit)="f.form.valid"
+      #f="ngForm"
+      novalidate>
+  <mat-card-content>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="postalCode"  name="postalCode" type="number"placeholder="Zip code" >
+      <mat-error *ngIf="newUserAddressForm.invalid">{{getErrorMessage()}}</mat-error>
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="streetName" name="streetName" type="text" placeholder="Street name" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="streetNumber" name="streetNumber" type="number" placeholder="Street number" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="streetNumberComplement" name="streetNumberComplement" type="text" placeholder="Street number complement" >
+    </mat-form-field>
+    <mat-form-field class="example-full-width">
+      <input matInput formControlName="town" name="town" type="text" placeholder="Town" >
+    </mat-form-field>
+    <button mat-raised-button *ngIf="newUserAddressForm.valid" color="accent" (click)="onSubmitNewAddress()" class="btn-block">Submit</button>
+  </mat-card-content>
+</form>
