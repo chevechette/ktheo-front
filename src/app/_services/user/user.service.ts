@@ -34,6 +34,11 @@ user!:User;
     return this.http.get<User>(BASE_API+'/api/user/'+this.tokenService.getUser().userId,httpOptions)
   }
 
+  
+  getOtherUser(id:number):Observable<User>{
+    return this.http.get<User>(`${BASE_API}/api/user/${id}`, httpOptions)
+  }
+
   checkPassword(currentPassword:string):Observable<boolean> {
     return this.http.post<boolean>(BASE_API+'/api/auth/'+this.tokenService.getUser().userId,currentPassword,httpOptions)
   }

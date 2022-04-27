@@ -8,6 +8,7 @@ import { ArtworkService } from 'src/app/_services/artwork/artwork.service';
 import { Artwork } from 'src/app/_interfaces/artwork';
 import { TagService } from 'src/app/_services/tag/tag.service';
 import { Tag } from 'src/app/_interfaces/tag';
+import { UserService } from 'src/app/_services/user/user.service';
 
 @Component({
   selector: 'app-artwork-details',
@@ -22,6 +23,7 @@ export class ArtworkDetailsComponent implements OnInit {
   // Final
   routeSub: Subscription;
   artworkId:number = 0;
+  username:string = "The Doctor";
   comments:Comment[] = [];
   tags:Tag[] = [];
   commentContentForm:string;
@@ -33,6 +35,7 @@ export class ArtworkDetailsComponent implements OnInit {
   constructor(private commentService : CommentService,
     private artworkService : ArtworkService,
     private tagService : TagService,
+    private userService : UserService,
     private route: ActivatedRoute) {
     this.routeSub = this.route.params.subscribe(params => {
       this.artworkId = parseInt(params['id'])
@@ -63,11 +66,21 @@ export class ArtworkDetailsComponent implements OnInit {
       next: artwork => {
         this.artwork = artwork
         this.images = Array.from(artwork.photos, photo => photo.path)
+        this.focusImageNext(0)
       },
       error: err => console.log(err),
       complete: () => {
         console.log("Artwork retrieval - complete")
         console.log(this.artwork);
+        if (this.artwork !== undefined) {
+          this.userService.getOtherUser(this.artwork.owner).subscribe({
+            next: user => {
+              this.username = user.username
+            },
+            error: err => console.log(err),
+            complete: () => {}
+          })
+        }
       }
     });
   }
@@ -80,6 +93,19 @@ export class ArtworkDetailsComponent implements OnInit {
       error: err => console.log(err),
       complete: () => {
         console.log("Comment retrieval - complete")
+        this.comments.forEach(comment => {
+          this.userService.getOtherUser(comment.author).subscribe({
+            next: usr => {
+              let co:Comment[] = this.comments.filter((item) => {
+                return item.author == usr.id;
+              });
+              co[0].username = usr.username;
+              console.log(co[0])
+              
+            },
+            error: err => console.log(err)
+          })
+        });
         console.log(this.comments);
       }
     });

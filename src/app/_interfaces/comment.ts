@@ -4,4 +4,5 @@ export interface Comment {
   topic:number;
   content:string;
   postedOn:Date;
+  username?:string;
 }
