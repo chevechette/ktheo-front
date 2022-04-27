@@ -33,6 +33,11 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
+import { MatSelectModule } from '@angular/material/select';
+
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ArtworkDetailsComponent } from './_components/artwork-details/artwork-details.component';
+import { ArtworkFormComponent } from './_components/artwork-form/artwork-form.component';
 
 
 @NgModule({
@@ -48,6 +53,8 @@ import { UserDetailsComponent } from './_components/user-details/user-details.co
     DashboardComponent,
     ArtworkComponent,
     UserDetailsComponent,
+    ArtworkDetailsComponent,
+    ArtworkFormComponent,
 
   ],
   imports: [
@@ -72,7 +79,9 @@ import { UserDetailsComponent } from './_components/user-details/user-details.co
     HttpClientModule,
     MatTabsModule,
     MatSliderModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatSelectModule,
+    MatCheckboxModule
   ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]
