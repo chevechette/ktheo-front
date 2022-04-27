@@ -49,7 +49,7 @@ import { MatStep } from '@angular/material/stepper';
 import { MatDividerModule } from '@angular/material/divider';
 import { AddressesComponent } from './_components/addresses/addresses.component';
 import { NewAddressComponent } from './_components/new-address/new-address.component';
-import {MDCDialog} from '@material/dialog';
+
 import { UserInfoChangeComponent } from './_components/user-info-change/user-info-change.component';
 
 
