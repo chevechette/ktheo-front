@@ -135,9 +135,16 @@ export class ArtworkComponent implements OnInit {
     this.router.navigate(['/artwork', artworkId]);
   }
 
-  fruitCtrl = new FormControl();
-
-  constructor(private artService : ArtworkService, private router: Router) {
+  add(event: MatChipInputEvent): void {
+    const value = (event.value || '').trim();
+    // Add our fruit
+    if (value) {
+      this.artFilter.push(value);
+      this.engine()
+    }
+    // Clear the input value
+    event.chipInput!.clear();
+    console.log(this.artFilter)
   }
 
   ngOnInit(): void {

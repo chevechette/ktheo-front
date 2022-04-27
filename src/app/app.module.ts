@@ -34,11 +34,18 @@ import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
 import { MatSelectModule } from '@angular/material/select';
-
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { ArtworkDetailsComponent } from './_components/artwork-details/artwork-details.component';
 import { ArtworkFormComponent } from './_components/artwork-form/artwork-form.component';
-
+import { CountdownComponent } from './_components/countdown/countdown.component';
+import {MatRippleModule} from "@angular/material/core";
+import { AuctionComponent } from './_components/auction/auction.component';
+import { AuctionsComponent } from './_components/auctions/auctions.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import { TransactionsComponent } from './_components/transactions/transactions.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatSortModule} from "@angular/material/sort";
 
 @NgModule({
   declarations: [
@@ -55,7 +62,10 @@ import { ArtworkFormComponent } from './_components/artwork-form/artwork-form.co
     UserDetailsComponent,
     ArtworkDetailsComponent,
     ArtworkFormComponent,
-
+    CountdownComponent,
+    AuctionComponent,
+    AuctionsComponent,
+    TransactionsComponent,
   ],
   imports: [
     BrowserModule,
@@ -81,8 +91,9 @@ import { ArtworkFormComponent } from './_components/artwork-form/artwork-form.co
     MatSliderModule,
     MatProgressBarModule,
     MatSelectModule,
-    MatCheckboxModule
-  ],
+    MatCheckboxModule,
+    MatSortModule
+ ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]
 })

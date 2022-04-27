@@ -31,28 +31,30 @@ export class ProfileComponent implements OnInit {
 
 
   isLog(){
+    console.log(this.userdata)
     return !!this.tokenService.getUser().username;
   }
-  userData !: Observable<UserDetails[]>;
   userdata !: User;
+
+  userdetailsData !: UserDetails;
+
 
   ngOnInit(): void {
     this.dataService.getUser().subscribe({
-      next: value => this.userdata = value
-    });
-  }
-
-  connect() {
-    this.dataService.getUsersData().subscribe({
-      next: value => this.userData = value,
-      error:error => console.log(error),
-      complete:() => console.log("complete")
+      next: value => this.userdata = value,
+      complete: () =>  {
+        this.userdetailsData = this.userdata.userData;
+        let date:Date =new Date();
+        date.setDate(this.userdetailsData.birthDate.getDate())
+        console.log(date)
+      }
     });
   }
 
   getErrorMessage() {
     return "Champ invalide";
   }
+
   disconnect() {
   }
 

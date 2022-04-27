@@ -9,6 +9,10 @@ import {ArtworkService} from "./_services/artwork/artwork.service";
 import {ArtworkComponent} from "./_components/artwork/artwork.component";
 import { ArtworkDetailsComponent } from './_components/artwork-details/artwork-details.component';
 import { ArtworkFormComponent } from './_components/artwork-form/artwork-form.component';
+import {CountdownComponent} from "./_components/countdown/countdown.component";
+import {AuctionComponent} from "./_components/auction/auction.component";
+import {AuctionsComponent} from "./_components/auctions/auctions.component";
+import {TransactionsComponent} from "./_components/transactions/transactions.component";
 
 const routes: Routes = [
   {
@@ -32,6 +36,19 @@ const routes: Routes = [
   { path: 'artwork/new', component: ArtworkFormComponent, data:{title:"Create Artwork"}},
   { path: 'artwork/:id', component: ArtworkDetailsComponent, data:{title:"Artwork"} }
 
+  },{
+    path: "auctions",
+    component:AuctionsComponent,
+    data:{title:"Auctions"}
+  },{
+    path: "auctions/detail/:id",
+    component:AuctionComponent,
+    data:{title: "Auction Detail"}
+  },{
+    path: "auctions/detail/:id/pay",
+    component:TransactionsComponent,
+    data:{title: "Complete my transaction"}
+  }
 ];
 
 @NgModule({

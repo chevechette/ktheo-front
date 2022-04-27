@@ -36,5 +36,3 @@ export class TagService {
     return this.httpClient.delete(`${this.apiURL}/${id}`);
   }
 }
-
-

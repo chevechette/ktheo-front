@@ -1,0 +1,15 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let auction of auctions" (opened)="panelOpenState = true"
+                       (closed)="panelOpenState = false">
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Auction n°{{auction.id}}
+      </mat-panel-title>
+      <mat-panel-description>
+
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <p>Biddable form {{auction.startsOn}} to {{auction.endsOn}}</p>
+    <a routerLink="/auctions/detail/{{auction.id}}" mat-stroked-button>Go!</a>
+  </mat-expansion-panel>
+</mat-accordion>
