@@ -1,11 +1,14 @@
 import {Biding} from "./biding";
 import {Artwork} from "./artwork";
+import {User} from "./user";
 
 export interface Auction {
   id:number,
-  auctionStartingTime: Date,
-  auctionStopingTime: Date,
+  startsOn: Date,
+  endsOn: Date,
   status:string,
   bids:Biding[],
-  artwork:Artwork;
+  artwork:number,
+  seller:number;
+
 }

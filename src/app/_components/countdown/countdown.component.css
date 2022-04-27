@@ -1,0 +1,42 @@
+.circleBase {
+  border-radius: 50%;
+  text-align: center;
+  align-items: center;
+  margin: auto;
+  /* remove if you don't care about IE8 */
+}
+
+.type1 {
+  width: 50px;
+  height: 50px;
+  background: rgba(255, 0, 0, 0.6);
+  border: 3px solid red;
+  font-family: 'Orbitron', sans-serif;
+}
+.type2 {
+  width: 50px;
+  height: 50px;
+  background: #ccc;
+  border: 3px solid #000;
+}
+
+/** Styles to make the demo look better. */
+
+.example-ripple-container {
+  cursor: pointer;
+  text-align: center;
+  display: flex;
+
+
+
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+
+  -webkit-user-drag: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.example-ripple-form-field {
+  margin: 0 12px 0 0;
+}

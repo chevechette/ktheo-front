@@ -1,0 +1,92 @@
+<mat-grid-list cols="8" rowHeight="100%">
+    <mat-grid-tile class="art-picture" colspan="6">
+        <section>
+            <div class="artwork-label">
+                <img class="user-avatar" src="{{ userAvatar }}" alt="userAvatar" />
+                <div class="artwork-label-text">
+                    <h1>
+                        {{ artwork?.title }}
+                    </h1>
+                    <div>
+                        original author {{ artwork?.creator }}
+                    </div>
+                    <div>
+                        published by {{ artwork?.owner }}
+                    </div>
+                    
+                    <div>
+                        {{ artwork?.creationLocation }} - {{ artwork?.createdOn }}
+                    </div>
+                    <div>
+                        etimated price : {{ artwork?.estimatedPrice }}
+                    </div>
+                </div>
+                <div>
+                    <div class="button-container">
+                        <button mat-fab disabled aria-label="kudos icon">
+                        <mat-icon>favorite</mat-icon>
+                        </button>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="art-showcase">
+                <div class="button-container">
+                    <button mat-fab (click)="focusImageNext(-1)" aria-label="left icon">
+                    <mat-icon>arrow_back</mat-icon>
+                    </button>
+                </div>
+                <div>
+                    <img class="art-photo" src="{{ focusImage }}" alt="There is no alt text" layout-fill/>
+                </div>
+                <div class="button-container">
+                    <button mat-fab (click)="focusImageNext(1)" aria-label="right icon">
+                    <mat-icon>arrow_forward</mat-icon>
+                    </button>
+                </div>
+            </div>
+            <div class="comment-container">
+                <div class="comment">
+                    <div>
+                        <img class="comment-author-avatar" src="https://i.etsystatic.com/17312551/r/il/539bb1/2284265554/il_794xN.2284265554_3y5d.jpg" layout-fill alt="Why do you ask me ?"/>
+                    </div>
+                    <div class="comment-data">
+                        <form class="comment-artwork-form">
+                            <mat-form-field class="input-full-width" appearance="fill">
+                              <mat-label>Laissez un commentaire</mat-label>
+                              <input matInput #message maxlength="256"
+                              (keyup.enter)="postComment()"
+                              [(ngModel)]="commentContentForm" name="content">
+                              <mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+                            </mat-form-field>
+                        </form>
+                    </div>
+                </div>
+                <div class="comment" *ngFor="let com of comments">
+                    <div>
+                        <img class="comment-author-avatar" src="https://i.etsystatic.com/17312551/r/il/539bb1/2284265554/il_794xN.2284265554_3y5d.jpg" layout-fill alt="Why do you ask me ?"/>
+                    </div>
+                    <div class="comment-data">
+                        <div class="comment-author-name">{{com.author}}</div>
+                        <div class="comment-content">{{com.content}}</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </mat-grid-tile>
+    <mat-grid-tile class="art-data" colspan="2">
+        <section>
+            <div>
+                <button mat-raised-button color="accent">AUCTION INFORMATION</button>
+            </div>
+            <div class="art-data-tags">
+                <mat-chip-list aria-label="Fish selection">
+                    <mat-chip selected *ngFor="let tag of tags">{{tag.tag}}</mat-chip>
+                </mat-chip-list>
+            </div>
+            <div class="artwork-data-description">
+                {{ artwork?.description }}
+            </div>
+        </section>
+    </mat-grid-tile>
+  </mat-grid-list>

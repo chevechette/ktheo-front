@@ -1,0 +1,60 @@
+<section>
+    <mat-form-field appearance="fill">
+        <mat-label>Titre</mat-label>
+        <input matInput [(ngModel)]="futureArtwork.title" name="title">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Type d'oeuvre</mat-label>
+        <mat-select [(ngModel)]="futureArtwork.category" name="category">
+        <mat-option selected *ngFor="let cat of categories" [value]="cat.id">{{cat.category}}</mat-option>
+        </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Creator</mat-label>
+        <input matInput [(ngModel)]="futureArtwork.creator" name="creator">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>creationLocation</mat-label>
+        <input matInput [(ngModel)]="futureArtwork.creationLocation" name="creationLocation">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Prix estimé</mat-label>
+        <input matInput [(ngModel)]="futureArtwork.estimatedPrice" name="estimatedPrice">
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+        <mat-label>Description</mat-label>
+        <textarea matInput [(ngModel)]="futureArtwork.description" name="description"></textarea>
+    </mat-form-field>
+    <mat-checkbox [(ngModel)]="futureArtwork.isRestricted" name="isRestricted">
+        Artwork isRestricted
+    </mat-checkbox>
+    
+    <button mat-raised-button color="accent" (click)="postArtwork()">Publier nouvelle oeuvre</button>
+</section>
+
+<form class="example-form">
+    <mat-form-field class="tag-chip-list" appearance="fill">
+        <mat-label>Definir les tags</mat-label>
+        <mat-chip-list #chipList aria-label="Tag selection">
+        <mat-chip *ngFor="let tag of currentTags" (removed)="removeTag(tag)">
+            {{tag}}
+            <button matChipRemove>
+            <mat-icon>cancel</mat-icon>
+            </button>
+        </mat-chip>
+        <input placeholder="Nouveau tag..." matInput
+                [matChipInputFor]="chipList"
+                [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                [matChipInputAddOnBlur]="true"
+                (matChipInputTokenEnd)="addTag($event)"
+                [formControl]="tagControl"
+                [matAutocomplete]="auto">
+                >
+        </mat-chip-list>
+        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+            <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+            {{option}}
+            </mat-option>
+        </mat-autocomplete>
+    </mat-form-field>
+</form>

@@ -33,6 +33,20 @@ import {MatTabsModule} from "@angular/material/tabs";
 import {MatSliderModule} from "@angular/material/slider";
 import {MatProgressBarModule} from "@angular/material/progress-bar";
 import { UserDetailsComponent } from './_components/user-details/user-details.component';
+import { MatSelectModule } from '@angular/material/select';
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import { ArtworkDetailsComponent } from './_components/artwork-details/artwork-details.component';
+import { ArtworkFormComponent } from './_components/artwork-form/artwork-form.component';
+import { CountdownComponent } from './_components/countdown/countdown.component';
+import {MatRippleModule} from "@angular/material/core";
+import { AuctionComponent } from './_components/auction/auction.component';
+import { AuctionsComponent } from './_components/auctions/auctions.component';
+import {MatExpansionModule} from "@angular/material/expansion";
+import { TransactionsComponent } from './_components/transactions/transactions.component';
+import {MatStepperModule} from "@angular/material/stepper";
+import {MatSortModule} from "@angular/material/sort";
+import { MatStep } from '@angular/material/stepper';
+import { MatDividerModule } from '@angular/material/divider';
 import { AddressesComponent } from './_components/addresses/addresses.component';
 import { NewAddressComponent } from './_components/new-address/new-address.component';
 import {MDCDialog} from '@material/dialog';
@@ -52,6 +66,12 @@ import { UserInfoChangeComponent } from './_components/user-info-change/user-inf
     DashboardComponent,
     ArtworkComponent,
     UserDetailsComponent,
+    ArtworkDetailsComponent,
+    ArtworkFormComponent,
+    CountdownComponent,
+    AuctionComponent,
+    AuctionsComponent,
+    TransactionsComponent,
     AddressesComponent,
     NewAddressComponent,
     UserInfoChangeComponent,
@@ -81,8 +101,14 @@ import { UserInfoChangeComponent } from './_components/user-info-change/user-inf
     MatTabsModule,
     MatSliderModule,
     MatProgressBarModule,
-
-  ],
+    MatSelectModule,
+    MatCheckboxModule,
+    MatSortModule,
+    MatStepperModule,
+    MatRippleModule,
+    MatDividerModule,
+    MatExpansionModule
+ ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]
 })
