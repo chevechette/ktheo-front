@@ -34,9 +34,9 @@ const routes: Routes = [
     data:{title:"Artworks"}
   },
   { path: 'artwork/new', component: ArtworkFormComponent, data:{title:"Create Artwork"}},
-  { path: 'artwork/:id', component: ArtworkDetailsComponent, data:{title:"Artwork"} }
+  { path: 'artwork/:id', component: ArtworkDetailsComponent, data:{title:"Artwork"}},
 
-  },{
+  {
     path: "auctions",
     component:AuctionsComponent,
     data:{title:"Auctions"}

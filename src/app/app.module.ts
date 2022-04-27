@@ -44,8 +44,9 @@ import { AuctionsComponent } from './_components/auctions/auctions.component';
 import {MatExpansionModule} from "@angular/material/expansion";
 import { TransactionsComponent } from './_components/transactions/transactions.component';
 import {MatStepperModule} from "@angular/material/stepper";
-import {MatCheckboxModule} from "@angular/material/checkbox";
 import {MatSortModule} from "@angular/material/sort";
+import { MatStep } from '@angular/material/stepper';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
   declarations: [
@@ -92,7 +93,11 @@ import {MatSortModule} from "@angular/material/sort";
     MatProgressBarModule,
     MatSelectModule,
     MatCheckboxModule,
-    MatSortModule
+    MatSortModule,
+    MatStepperModule,
+    MatRippleModule,
+    MatDividerModule,
+    MatExpansionModule
  ],
   providers: [{provide: LOCALE_ID, useValue: 'fr'}],
   bootstrap: [AppComponent]

@@ -116,6 +116,8 @@ export class ArtworkComponent implements OnInit {
   }
   
   // Logical
+
+
   getArtworks(){
     this.artService.getAll().subscribe({
       next: artwork => {
@@ -135,23 +137,12 @@ export class ArtworkComponent implements OnInit {
     this.router.navigate(['/artwork', artworkId]);
   }
 
-  add(event: MatChipInputEvent): void {
-    const value = (event.value || '').trim();
-    // Add our fruit
-    if (value) {
-      this.artFilter.push(value);
-      this.engine()
-    }
-    // Clear the input value
-    event.chipInput!.clear();
-    console.log(this.artFilter)
-  }
-
   ngOnInit(): void {
     this.getArtworks();
     this.result = this.artworks;
   }
 
-  displayedColumns = ["title"];
+  constructor(private artService : ArtworkService, private router: Router) {
+  }
 }
 

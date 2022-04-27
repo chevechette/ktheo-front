@@ -20,14 +20,14 @@ export class ArtworkService {
 
   date : Date = new Date();
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
   getArtworks():Observable<Artwork[]>{
-  return this.http.get<Artwork[]>(BASE_API+"/api/artwork", httpOptions);
+  return this.httpClient.get<Artwork[]>(BASE_API+"/api/artwork", httpOptions);
   }
 
   getArtwork(id:number):Observable<Artwork>{
-    return this.http.get<Artwork>(BASE_API+"api/artwork/id",httpOptions)
+    return this.httpClient.get<Artwork>(BASE_API+"api/artwork/id",httpOptions)
   }
   
   getAll(): Observable<Artwork[]> {
